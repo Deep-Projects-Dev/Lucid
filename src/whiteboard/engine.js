@@ -5,7 +5,7 @@ import { InputController } from './input.js';
 // Rendering and pointer processing are intentionally imperative and independent
 // from React's render cycle. Persistent geometry is stored in world coordinates.
 
-const DEFAULT_BACKGROUND = '#335';
+const DEFAULT_BACKGROUND = '#111';
 const DEFAULT_COLOUR = '#ddd';
 const MIN_TOOL_SIZE = 1;
 const MAX_TOOL_SIZE = 48;
@@ -22,7 +22,7 @@ function distanceToSegment(px, py, ax, ay, bx, by) {
 
 function pointInPolygon(x, y, polygon) {
   let inside = false;
-  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i += 1) {
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
     const xi = polygon[i].x;
     const yi = polygon[i].y;
     const xj = polygon[j].x;

@@ -23,8 +23,8 @@ function Icon({ name }) {
     undo: <path {...stroke} d="M9 8 4 12l5 4M4 12h9a5 5 0 1 1 0 10" />,
     redo: <path {...stroke} d="m15 8 5 4-5 4m5-4h-9a5 5 0 1 0 0 10" />,
     select: <path {...stroke} d="M5 3.5v13l3.6-3.3 2.9 6.3 2.2-1-2.9-6.2H16L5 3.5Z" />,
-    previous: <path {...stroke} d="m14.5 5-7 7 7 7" />,
-    next: <path {...stroke} d="m9.5 5 7 7-7 7" />,
+    previous: <path {...stroke} d="m5 14.5 7-7 7 7" />,
+    next: <path {...stroke} d="m5 9.5 7 7 7-7" />,
     reset: <path {...stroke} d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />,
     fullscreen: <path {...stroke} d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" />,
     more: <><circle cx="5" cy="12" r="1.3" fill="currentColor" /><circle cx="12" cy="12" r="1.3" fill="currentColor" /><circle cx="19" cy="12" r="1.3" fill="currentColor" /></>,
@@ -83,6 +83,12 @@ export default function Whiteboard() {
 
   const chooseColour = (nextColour) => {
     engineRef.current?.setColour(nextColour);
+
+    if (tool !== 'pen' && tool !== 'pencil') {
+      engineRef.current?.setTool('pen');
+      setTool('pen');
+    }
+
     setColour(nextColour);
     setSizeOpen(false);
   };
