@@ -1,0 +1,4 @@
+node_modules
+dist
+trash
+package-lock.json

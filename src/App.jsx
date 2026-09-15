@@ -1,8 +1,6 @@
-import { useState } from 'react'
-import './App.css'
+import Whiteboard from './whiteboard/Whiteboard.jsx';
+import './App.css';
 
 export default function App() {
-  return (
-    <></>
-  )
+  return <Whiteboard />;
 }
